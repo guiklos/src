@@ -1,0 +1,271 @@
+.container {
+     padding: 2rem;
+     width: 100%;
+     height: 100%;
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     background-color: #f8f8f8;
+     border-radius: 8px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 1.5rem;
+     color: #333;
+}
+
+.header h1 {
+     font-size: 1.8rem;
+     font-weight: 600;
+}
+
+.createButton {
+     width: auto;
+     padding: 0.75rem 1.25rem;
+     border: none;
+     border-radius: 6px;
+     background-color: #0070f3;
+     color: white;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+     font-size: 1rem;
+     font-weight: 500;
+}
+
+.createButton:hover {
+     background-color: #005bb5;
+}
+
+.tableContainer {
+     margin-top: 1.5rem;
+     overflow-x: auto;
+}
+
+.table {
+     width: 100%;
+     border-collapse: collapse;
+     border-radius: 8px;
+     overflow: hidden;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+     border-bottom: 1px solid #ddd;
+     padding: 0.75rem 1rem;
+     text-align: left;
+     color: #333;
+}
+
+.table th {
+     background-color: #f4f4f4;
+     font-weight: 600;
+}
+
+.table tr:hover {
+     background-color: #f1f1f1;
+}
+
+.editButton,
+.deleteButton {
+     background: #007bff;
+     color: #fff;
+     border: none;
+     padding: 0.5rem 0.75rem;
+     border-radius: 4px;
+     cursor: pointer;
+     font-size: 0.9rem;
+     transition: background 0.3s ease;
+     margin-right: 0.5rem;
+}
+
+.editButton:hover {
+     background: #0056b3;
+}
+
+.deleteButton {
+     background: #f44336;
+}
+
+.deleteButton:hover {
+     background: #d32f2f;
+}
+
+.modal {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background: #fff;
+     padding: 2rem;
+     border-radius: 8px;
+     width: 90%;
+     max-width: 500px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal h2 {
+     margin-top: 0;
+     margin-bottom: 1rem;
+     font-size: 1.5rem;
+     font-weight: 600;
+}
+
+.modal .inputContainer {
+     display: flex;
+     flex-direction: column;
+     margin-bottom: 1rem;
+}
+
+.modal label {
+     font-size: 0.9rem;
+     font-weight: 500;
+     margin-bottom: 0.5rem;
+     color: #666;
+}
+
+.modal input,
+.modal select,
+.modal button {
+     padding: 0.75rem;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+     font-size: 1rem;
+}
+
+.modal button {
+     background: #007bff;
+     color: #fff;
+     border: none;
+     cursor: pointer;
+     transition: background 0.3s ease;
+}
+
+.modal button:hover {
+     background: #0056b3;
+}
+
+.error {
+     color: red;
+     font-size: 0.9rem;
+     margin-top: 0.5rem;
+}
+
+.sortButton {
+     border: none;
+     background: none;
+     color: #333;
+     cursor: pointer;
+     font-size: 1rem;
+}
+
+.sortButton:hover {
+     color: #0056b3;
+}
+
+.modal .inputContainer {
+     display: flex;
+     flex-direction: column;
+     margin-bottom: 1rem;
+}
+
+.modal label {
+     font-size: 0.9rem;
+     font-weight: 500;
+     margin-bottom: 0.5rem;
+     color: #666;
+}
+
+.modal input,
+.modal select,
+.modal button {
+     padding: 0.75rem;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+     font-size: 1rem;
+}
+
+.modal input::placeholder,
+.modal select::placeholder {
+     color: #999;
+     font-size: 0.9rem;
+}
+
+.modal button {
+     background: #007bff;
+     color: #fff;
+     border: none;
+     cursor: pointer;
+     transition: background 0.3s ease;
+}
+
+.modal button:hover {
+     background: #0056b3;
+}
+
+.error {
+     color: red;
+     font-size: 0.9rem;
+     margin-top: 0.5rem;
+}
+
+.modal .inputContainer {
+     display: flex;
+     flex-direction: column;
+     margin-bottom: 1rem;
+     position: relative;
+}
+
+.modal .inputContainer label {
+     font-size: 0.9rem;
+     font-weight: 500;
+     position: absolute;
+     top: 50%;
+     left: 0.75rem;
+     transform: translateY(-50%);
+     color: #999;
+     pointer-events: none;
+     transition: all 0.2s ease;
+}
+
+.modal .inputContainer input,
+.modal .inputContainer select {
+     padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+     border: 1px solid #ddd;
+     border-radius: 6px;
+     font-size: 1rem;
+}
+
+.modal .inputContainer input:focus+label,
+.modal .inputContainer input:not(:placeholder-shown)+label,
+.modal .inputContainer select:focus+label,
+.modal .inputContainer select:not(:placeholder-shown)+label {
+     top: 0;
+     font-size: 0.75rem;
+     color: #666;
+}
+
+.modal button {
+     background: #007bff;
+     color: #fff;
+     border: none;
+     padding: 0.75rem;
+     border-radius: 6px;
+     cursor: pointer;
+     font-size: 1rem;
+     transition: background 0.3s ease;
+}
+
+.modal button:hover {
+     background: #0056b3;
+}
+
+.error {
+     color: red;
+     font-size: 0.9rem;
+     margin-top: 0.5rem;
+}

@@ -1,0 +1,236 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.header h1 {
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  height: 210px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px; /* Ajuste o espaço entre os elementos conforme necessário */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form-row .form-group {
+  flex: 1; /* Permite que os elementos dentro da linha cresçam uniformemente */
+  min-width: 220px; /* Ajuste conforme necessário */
+}
+
+
+.form-row label {
+  flex: 1;
+  min-width: 220px;
+}
+
+
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 10px;
+  width: 100%;
+
+}
+
+.form-row select,
+.form-row input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.generateButton,
+.downloadButton {
+  padding: 10px 15px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  margin: 0 5px;
+}
+
+.generateButton:hover,
+.downloadButton:hover {
+  background-color: #2ecc71;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.resultContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 8px;
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 250px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 12px;
+}
+
+.table th {
+  background-color: #2980b9;
+  color: white;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.table td ul {
+  list-style-type: disc;
+  margin-left: 15px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.successMessage {
+  color: #27ae60;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #3498db;
+}
+
+/* Print styling */
+@media print {
+  .table {
+    color: black;
+    border-color: black;
+  }
+
+  .table th,
+  .table td {
+    background-color: white !important;
+    color: black !important;
+    border-color: black !important;
+  }
+
+  .header h1,
+  .header p {
+    color: black;
+  }
+
+  .resultContainer {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .generateButton,
+  .downloadButton,
+  .pagination {
+    display: none;
+  }
+}
