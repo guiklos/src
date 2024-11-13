@@ -549,10 +549,19 @@ const handleCancelOrder = async (pedidoId) => {
 };
 
   const handleEdit = (pedido) => {
-    const itemsForEditingPedido = filterItemsOrdemByPedido(pedido.id);
-    setEditingPedido({ ...pedido, items: itemsForEditingPedido });
-    setShowForm(true);
-  };
+  // Prevent editing if order is canceled or delivered
+  if (pedido.status === OrderStatus.Canceled || pedido.status === OrderStatus.Delivered) {
+    setError('Não é possível editar pedidos cancelados ou entregues.');
+    setTimeout(() => {
+      setError('');
+    }, 3000);
+    return;
+  }
+  
+  const itemsForEditingPedido = filterItemsOrdemByPedido(pedido.id);
+  setEditingPedido({ ...pedido, items: itemsForEditingPedido });
+  setShowForm(true);
+};
 
   const ShippingDateField = ({ editingPedido, newPedido, handleInputChange, fieldErrors }) => {
   if (!editingPedido) {
@@ -1000,7 +1009,17 @@ const handleCancelOrder = async (pedidoId) => {
                 <td>{getStateLabel(pedido.status)}</td>
                 <td>{pedido.nInstallments}</td>
                 <td>{getClientNameById(pedido.fkClientId)}</td>
-                <td align="right">{pedido.totalValue}</td>
+                <td className={`${styles.rightAlign}`}>
+  {new Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(pedido.totalValue)}
+</td>
+
+
+
+
+
                 <td>
                   {filterItemsOrdemByPedido(pedido.id).map((item) => (
                     <div key={item.id}>
@@ -1009,18 +1028,19 @@ const handleCancelOrder = async (pedidoId) => {
                   ))}
                 </td>
                 <td>
-  <button className={styles.editButton} onClick={() => handleEdit(pedido)}>
-    Editar
-  </button>
   {pedido.status !== OrderStatus.Canceled && pedido.status !== OrderStatus.Delivered && (
-  <button 
-    className={`${styles.deleteButton} ${styles.cancelButton}`} 
-    onClick={() => setConfirmDelete(pedido.id)}
-  >
-    Cancelar
-  </button>
-)}
-
+    <button className={styles.editButton} onClick={() => handleEdit(pedido)}>
+      Editar
+    </button>
+  )}
+  {pedido.status !== OrderStatus.Canceled && pedido.status !== OrderStatus.Delivered && (
+    <button 
+      className={`${styles.deleteButton} ${styles.cancelButton}`} 
+      onClick={() => setConfirmDelete(pedido.id)}
+    >
+      Cancelar
+    </button>
+  )}
   {pedido.status === OrderStatus.Pending && (
     <button 
       className={styles.shippingButton}

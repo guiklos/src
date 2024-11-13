@@ -597,7 +597,7 @@
 }
 
 .rightAlign {
-     text-align: right;
+     text-align: right !important;
 }
 .cancelButton {
      background-color: #dc3545;
